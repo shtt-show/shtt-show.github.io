@@ -1,1 +1,294 @@
-<html><body>Version Control is a Shitshow</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHTT - Simple History Tracking Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F2E8;
+            --warm-brown: #8B4513;
+            --light-brown: #D2B48C;
+            --dark-brown: #5D2F0A;
+            --tan: #DEB887;
+            --soft-brown: #A0522D;
+            --text-dark: #3E2723;
+            --text-medium: #6D4C41;
+            --accent-orange: #FF8C42;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #F8F5F0 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 3rem 0 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--light-brown);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        main {
+            padding: 4rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--light-brown);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.15);
+            border-color: var(--soft-brown);
+        }
+
+        .feature-card h3 {
+            color: var(--warm-brown);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-brown) 0%, var(--tan) 100%);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin: 4rem 0;
+            border: 2px solid var(--warm-brown);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--warm-brown);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            border: 2px solid var(--warm-brown);
+        }
+
+        .cta-button:hover {
+            background: var(--dark-brown);
+            border-color: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--warm-brown);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--warm-brown);
+            color: white;
+        }
+
+        .code-block {
+            background: var(--dark-brown);
+            color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            margin: 2rem 0;
+            border: 2px solid var(--warm-brown);
+            overflow-x: auto;
+        }
+
+        .install-section {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 2px solid var(--light-brown);
+            margin: 3rem 0;
+        }
+
+        .install-section h2 {
+            color: var(--warm-brown);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 2px solid var(--light-brown);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-medium);
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: var(--warm-brown);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--dark-brown);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.jpg" alt="SHTT Logo" class="logo">
+            <p class="tagline">Because version control doesn't have to be a shitshow</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Finally, Version Control That Makes Sense</h1>
+                <p>SHTT simplifies history tracking with an intuitive approach that actually works. No more fighting with complex branching strategies or cryptic commit messages.</p>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <h3>🎯 Simple & Intuitive</h3>
+                    <p>Designed for humans, not git wizards. Track changes without the mental overhead of traditional version control systems.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🚀 Lightning Fast</h3>
+                    <p>Built in Rust for maximum performance. Operations that take minutes in other tools happen in seconds with SHTT.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🧠 Smart Defaults</h3>
+                    <p>Sensible defaults that work out of the box. Spend time building, not configuring your version control system.</p>
+                </div>
+            </section>
+
+            <section class="install-section">
+                <h2>Get Started</h2>
+                <p>Install SHTT and start tracking changes the sane way:</p>
+                
+                <div class="code-block">
+# Install via cargo
+cargo install shtt
+
+# Initialize a new project
+shtt init
+
+# Track your first change
+shtt add "Initial commit"</div>
+            </section>
+
+            <section class="cta-section">
+                <h2 style="color: var(--dark-brown); margin-bottom: 1rem;">Ready to Ditch the Drama?</h2>
+                <p style="color: var(--text-dark); margin-bottom: 2rem; font-size: 1.2rem;">Join developers who've discovered that version control can actually be pleasant.</p>
+                
+                <a href="https://github.com/yourusername/shtt" class="cta-button">View on GitHub</a>
+                <a href="#docs" class="cta-button secondary">Read the Docs</a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/yourusername/shtt">GitHub</a>
+                <a href="#docs">Documentation</a>
+                <a href="#issues">Report Issues</a>
+                <a href="#contribute">Contribute</a>
+            </div>
+            <p>&copy; 2025 SHTT Project. Licensed under MPL 2.0.</p>
+        </div>
+    </footer>
+</body>
+</html>
