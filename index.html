@@ -68,29 +68,28 @@
             margin-bottom: 4rem;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--dark-brown);
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--warm-brown);
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1);
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--text-medium);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 2rem;
         }
 
-        .features {
+        .commands-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin: 4rem 0;
         }
 
-        .feature-card {
+        .command-card {
             background: rgba(255, 255, 255, 0.6);
             padding: 2rem;
             border-radius: 12px;
@@ -99,31 +98,96 @@
             backdrop-filter: blur(5px);
         }
 
-        .feature-card:hover {
+        .command-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(139, 69, 19, 0.15);
             border-color: var(--soft-brown);
         }
 
-        .feature-card h3 {
+        .command-card h3 {
             color: var(--warm-brown);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .feature-card p {
+        .command-card p {
             color: var(--text-medium);
             line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        .cta-section {
+        .command-example {
+            background: var(--dark-brown);
+            color: var(--cream);
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .install-section {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 2px solid var(--light-brown);
+            margin: 3rem 0;
             text-align: center;
+        }
+
+        .install-section h2 {
+            color: var(--warm-brown);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .code-block {
+            background: var(--dark-brown);
+            color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            margin: 2rem 0;
+            border: 2px solid var(--warm-brown);
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .workflow-section {
             background: linear-gradient(135deg, var(--light-brown) 0%, var(--tan) 100%);
             padding: 3rem 2rem;
             border-radius: 16px;
             margin: 4rem 0;
             border: 2px solid var(--warm-brown);
+        }
+
+        .workflow-section h2 {
+            color: var(--dark-brown);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .workflow-step {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--warm-brown);
+        }
+
+        .workflow-step h3 {
+            color: var(--warm-brown);
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .cta-button {
@@ -157,32 +221,6 @@
             color: white;
         }
 
-        .code-block {
-            background: var(--dark-brown);
-            color: var(--cream);
-            padding: 1.5rem;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
-            font-size: 0.9rem;
-            margin: 2rem 0;
-            border: 2px solid var(--warm-brown);
-            overflow-x: auto;
-        }
-
-        .install-section {
-            background: rgba(255, 255, 255, 0.4);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 2px solid var(--light-brown);
-            margin: 3rem 0;
-        }
-
-        .install-section h2 {
-            color: var(--warm-brown);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-
         footer {
             text-align: center;
             padding: 3rem 0;
@@ -208,16 +246,24 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .logo {
+                max-width: 250px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .container {
                 padding: 0 1rem;
+            }
+
+            .commands-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -233,48 +279,76 @@
     <main>
         <div class="container">
             <section class="hero">
-                <h1>Finally, Version Control That Makes Sense</h1>
-                <p>SHTT simplifies history tracking with an intuitive approach that actually works. No more fighting with complex branching strategies or cryptic commit messages.</p>
+                <h2>Git Workflows, Simplified</h2>
+                <p>SHTT provides four essential commands that cover 90% of your daily Git workflow. No more memorizing dozens of flags and options – just the operations you actually need.</p>
             </section>
 
-            <section class="features">
-                <div class="feature-card">
-                    <h3>🎯 Simple & Intuitive</h3>
-                    <p>Designed for humans, not git wizards. Track changes without the mental overhead of traditional version control systems.</p>
+            <section class="commands-grid">
+                <div class="command-card">
+                    <h3>shtt dump</h3>
+                    <p>See all changes in your working directory at a glance. Shows both modified tracked files and untracked files in clean, porcelain format.</p>
+                    <div class="command-example">$ shtt dump<br>M src/main.rs<br>A src/new_file.rs<br>? untracked.txt</div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>🚀 Lightning Fast</h3>
-                    <p>Built in Rust for maximum performance. Operations that take minutes in other tools happen in seconds with SHTT.</p>
+                <div class="command-card">
+                    <h3>shtt save</h3>
+                    <p>Commit all changes (tracked and untracked) and push to origin in one command. Optionally provide a commit message or be prompted for one.</p>
+                    <div class="command-example">$ shtt save -m "Add new feature"<br>Created commit: a1b2c3d...<br>Pushed changes to origin/main</div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>🧠 Smart Defaults</h3>
-                    <p>Sensible defaults that work out of the box. Spend time building, not configuring your version control system.</p>
+                <div class="command-card">
+                    <h3>shtt pull</h3>
+                    <p>Pull latest changes from origin, or clone a repository if you're not in one yet. Smart enough to know which operation you need.</p>
+                    <div class="command-example">$ shtt pull<br>Fast-forwarding to origin/main...<br># OR<br>$ shtt pull git@github.com:user/repo.git</div>
+                </div>
+
+                <div class="command-card">
+                    <h3>shtt wipe</h3>
+                    <p>Nuclear option: reset everything to match origin exactly. Removes local commits, untracked files, and empty directories. Like a fresh clone.</p>
+                    <div class="command-example">$ shtt wipe<br>Reset repository to match origin/main<br>Removed all untracked files</div>
+                </div>
+            </section>
+
+            <section class="workflow-section">
+                <h2>Your Daily Workflow</h2>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <h3>1. Check Status</h3>
+                        <p>See what's changed since your last commit</p>
+                        <div class="command-example">shtt dump</div>
+                    </div>
+                    <div class="workflow-step">
+                        <h3>2. Save Changes</h3>
+                        <p>Commit and push everything in one go</p>
+                        <div class="command-example">shtt save -m "Fix bug"</div>
+                    </div>
+                    <div class="workflow-step">
+                        <h3>3. Get Updates</h3>
+                        <p>Pull the latest changes from your team</p>
+                        <div class="command-example">shtt pull</div>
+                    </div>
+                    <div class="workflow-step">
+                        <h3>4. Start Fresh</h3>
+                        <p>When things get messy, start clean</p>
+                        <div class="command-example">shtt wipe</div>
+                    </div>
                 </div>
             </section>
 
             <section class="install-section">
-                <h2>Get Started</h2>
-                <p>Install SHTT and start tracking changes the sane way:</p>
+                <h2>Installation</h2>
+                <p>Built in Rust for speed and reliability. Install via Cargo:</p>
                 
-                <div class="code-block">
-# Install via cargo
-cargo install shtt
+                <div class="code-block"># Install SHTT
+cargo install --path .
 
-# Initialize a new project
-shtt init
+# Or download from releases
+# Then use anywhere in your Git repositories</div>
 
-# Track your first change
-shtt add "Initial commit"</div>
-            </section>
-
-            <section class="cta-section">
-                <h2 style="color: var(--dark-brown); margin-bottom: 1rem;">Ready to Ditch the Drama?</h2>
-                <p style="color: var(--text-dark); margin-bottom: 2rem; font-size: 1.2rem;">Join developers who've discovered that version control can actually be pleasant.</p>
-                
-                <a href="https://github.com/shtt-show/shtt" class="cta-button">View on GitHub</a>
-                <a href="https://github.com/shtt-show/shtt/tree/trunk/docs" class="cta-button secondary">Read the Docs</a>
+                <div style="margin-top: 2rem;">
+                    <a href="https://github.com/shtt-show/shtt" class="cta-button">View on GitHub</a>
+                    <a href="https://github.com/shtt-show/shtt/blob/trunk/README.md" class="cta-button secondary">Read the Docs</a>
+                </div>
             </section>
         </div>
     </main>
@@ -283,11 +357,11 @@ shtt add "Initial commit"</div>
         <div class="container">
             <div class="footer-links">
                 <a href="https://github.com/shtt-show/shtt">GitHub</a>
-                <a href="https://github.com/shtt-show/shtt/tree/trunk/docs">Documentation</a>
+                <a href="https://github.com/shtt-show/shtt/blob/trunk/README.md">Documentation</a>
                 <a href="https://github.com/shtt-show/shtt/issues">Report Issues</a>
-                <a href="#contribute">Contribute</a>
+                <a href="https://github.com/shtt-show/shtt/blob/trunk/LICENSE">License (MPL 2.0)</a>
             </div>
-            <p>&copy; 2025 SHTT Hackers Organized Workgroup. Licensed under MPL 2.0.</p>
+            <p>&copy; 2025 SHTT Project. Licensed under Mozilla Public License 2.0.</p>
         </div>
     </footer>
 </body>
