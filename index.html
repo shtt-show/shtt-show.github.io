@@ -280,10 +280,10 @@
         <div class="container">
             <section class="hero">
                 <h2>Git Workflows, Simplified</h2>
-                <p>SHTT provides four essential commands that cover 90% of your daily Git workflow. No more memorizing dozens of flags and options – just the operations you actually need.</p>
+                <p>SHTT provides five essential commands that cover 90% of your daily Git workflow. No more memorizing dozens of flags and options – just the operations you actually need.</p>
             </section>
 
-            <section class="commands-grid">
+			<section class="commands-grid">
                 <div class="command-card">
                     <h3>shtt dump</h3>
                     <p>See all changes in your working directory at a glance. Shows both modified tracked files and untracked files in clean, porcelain format.</p>
@@ -303,12 +303,17 @@
                 </div>
 
                 <div class="command-card">
+                    <h3>shtt drop</h3>
+                    <p>Create and push semantic version tags. Automatically increments from the highest existing tag and supports major, minor, or patch bumps.</p>
+                    <div class="command-example">$ shtt drop patch<br>Created tag: v1.2.4<br>Pushed tag v1.2.4 to origin</div>
+                </div>
+
+                <div class="command-card">
                     <h3>shtt wipe</h3>
                     <p>Nuclear option: reset everything to match origin exactly. Removes local commits, untracked files, and empty directories. Like a fresh clone.</p>
                     <div class="command-example">$ shtt wipe<br>Reset repository to match origin/main<br>Removed all untracked files</div>
                 </div>
             </section>
-
             <section class="workflow-section">
                 <h2>Your Daily Workflow</h2>
                 <div class="workflow-steps">
@@ -321,6 +326,11 @@
                         <h3>2. Save Changes</h3>
                         <p>Commit and push everything in one go</p>
                         <div class="command-example">shtt save -m "Fix bug"</div>
+                    </div>
+                    <div class="workflow-step">
+                        <h3>2.5 Drop a New Release</h3>
+                        <p>Automatically bump your tag version with SemVer</p>
+                        <div class="command-example">shtt drop major</div>
                     </div>
                     <div class="workflow-step">
                         <h3>3. Get Updates</h3>
@@ -357,7 +367,7 @@
                 <a href="https://github.com/shtt-show/shtt/issues">Report Issues</a>
                 <a href="https://github.com/shtt-show/shtt/blob/trunk/LICENSE">License (MPL 2.0)</a>
             </div>
-            <p>&copy; 2025 SHTT Project. Licensed under Mozilla Public License 2.0.</p>
+            <p>&copy; 2025 SHTT SHOW. Licensed under Mozilla Public License 2.0.</p>
         </div>
     </footer>
 </body>
